@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  frontend:
+    image: react-app
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+      - "35729:35729"
+    volumes:
+      - .:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run start
